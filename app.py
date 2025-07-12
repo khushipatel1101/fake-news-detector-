@@ -6,14 +6,13 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-# Load NLTK Data (same as notebook)
-nltk.data.path.append('K:/sem 7 intership/venv/nltk_data')
-nltk.download('punkt', download_dir='K:/sem 7 intership/venv/nltk_data')
-nltk.download('stopwords', download_dir='K:/sem 7 intership/venv/nltk_data')
-nltk.download('wordnet', download_dir='K:/sem 7 intership/venv/nltk_data')
-nltk.download('omw-1.4', download_dir='K:/sem 7 intership/venv/nltk_data')
+# Download required NLTK resources on Streamlit Cloud
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
-# Define text cleaning function (same as notebook)
+# Initialize lemmatizer and stopword list
 lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words('english'))
 

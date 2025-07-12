@@ -2,15 +2,23 @@ import streamlit as st
 import joblib
 import nltk
 import re
+import os
+
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-# Download required NLTK resources on Streamlit Cloud
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
+# ✅ Set up NLTK data path for Streamlit Cloud
+nltk_data_path = "/tmp/nltk_data"
+os.makedirs(nltk_data_path, exist_ok=True)
+
+nltk.data.path.append(nltk_data_path)
+
+# ✅ Download required NLTK datasets to /tmp/nltk_data
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('stopwords', download_dir=nltk_data_path)
+nltk.download('wordnet', download_dir=nltk_data_path)
+nltk.download('omw-1.4', download_dir=nltk_data_path)
 
 # Initialize lemmatizer and stopword list
 lemmatizer = WordNetLemmatizer()
